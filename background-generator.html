@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background generator</title>
+    <link rel="stylesheet" type="text/css" href="background generator.css">
+</head>
+<body id="gradient">
+    <h1>Background generator</h1>
+    <input type="color" class="color1" name="color1" value="#00ff00">
+    <input type="color" class="color2" name="color2" value= "#ff0000">
+    <h2>Current css Background</h2>
+    <input type="text" placeholder="enter something" id="input">
+    <button id="button">Click here...</button>
+    <ul>
+
+    </ul>
+    <script>
+        let input= document.getElementById("input")
+        console.log("input")
+        let button = document.getElementById("button")  
+        let ul = document.querySelector("ul")
+        console.log(button) 
+
+
+        button.addEventListener("click", function(){
+            if (input.value.length > 0){
+                var li = document.createElement("li")
+            li.appendChild(document.createTextNode(input.value));
+            ul.appendChild(li) 
+            input.value = "";
+            }
+            console.log("clicker snap")
+            
+        })
+        input.addEventListener("keypress", function(event){
+            if (input.value.length > 0 && event.which === 13){
+            var li = document.createElement("li")
+            li.appendChild(document.createTextNode(input.value));
+            ul.appendChild(li)
+            input.value ="";
+            }
+        
+        })
+         </script>
+  
+    <script>
+      let  color1 = document.querySelector(".color1")
+        let  color2 = document.querySelector(".color2")
+        let body = document.getElementById("gradient")
+        
+        console.log(color1.value)
+        console.log(color2.value)
+        body.style.background = "red";
+
+
+        color1.addEventListener("input", function(){
+            console.log(color1.value)
+            body.style.background = "linear-gradient(to right," + color1.value + ", " + color2.value,")";
+        })
+
+        color2.addEventListener("input", function(){
+            console.log(color2.value);
+            body.style.background = "linear-gradient(to right," + color1.value + ", " + color2.value,")";
+        })
+ 
+    </script>
+</body>
+</html> 
